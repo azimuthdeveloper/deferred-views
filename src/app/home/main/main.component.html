@@ -1,1 +1,18 @@
-<p>main works!</p>
+
+  <div class="flex-container">
+    @for (duck of this.ducks;track duck.file) {
+      @defer (on hover) {
+        <app-duck-card [duck]="duck" class="flex-item"></app-duck-card>
+      } @placeholder {
+        <div style="height: 300px; width: 300px;">Wait for the duck...</div>
+      }
+    }
+  </div>
+  <div style="padding: 50px; max-width: 1024px">
+    @defer (on viewport){
+      <app-newsletter-signup></app-newsletter-signup>
+    } @placeholder (minimum 2000ms) {
+      <div>Loading..</div>
+    }
+  </div>
+

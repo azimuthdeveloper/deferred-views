@@ -1,1 +1,26 @@
-<p>duck-details works!</p>
+<!--<mat-dialog-content>-->
+<mat-card-content>
+  <div style="display: flex; flex-direction: column; justify-content: stretch; padding: 16px">
+    <h2 mat-dialog-title>What a great duck!</h2>
+    <img [src]="this.data.file" style="height: 300px; width: auto; object-fit: cover">
+    @if (this.activity()){
+      <p>Looking for an activity to do with your duck? How about: {{this.activity()?.activity}}?</p>
+    } @else {
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+    <h3>What do you rate this duck?</h3>
+    <mat-card>
+      <div style="padding: 24px; text-align: center">
+        <app-star-rating></app-star-rating>
+      </div>
+
+    </mat-card>
+  </div>
+
+
+
+  <mat-card-actions style="display: flex; justify-content: end">
+    <button mat-flat-button color="primary" (click)="this.dialog.close()" >CLOSE</button>
+  </mat-card-actions>
+
+</mat-card-content>
